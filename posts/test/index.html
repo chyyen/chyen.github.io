@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-	<meta name="generator" content="Hugo 0.101.0" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>chyen&#39;s blog | chyen&#39;s blog</title>
+    <title>Test | chyen&#39;s blog</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     
@@ -54,21 +53,21 @@ code.has-jax {
 </style>
 
 
+<div class="article-meta">
+<h1><span class="title">Test</span></h1>
 
+<h2 class="date">2022/06/28</h2>
+</div>
 
+<main>
+<p>總共有 $ T $ 筆詢問，每筆詢問會給定一個正整數 $N(N \leq 10^7)$ ，求 :
+$$ \sum_{i=1}^{n} \frac{n}{gcd(i,n)} $$</p>
+<hr>
+<p>如果考慮枚舉 $gcd(i,n)$ ，這樣一來可以得到原式等於 :
+$$ \sum_{k \mid n} \frac{n}{k} \sum_{i=1}^{\frac{n}{k}}[\space gcd(i,\frac{n}{k})=1\space] $$
+可以發現 $\sum_{i=1}^{k}[gcd(i,k)=1]$ 其實就等於 $\varphi(k)$ ，於是我們可以預處理 $\varphi(n)$ ，並且對於所有正整數 $i$ ，把 $i$ 的倍數都加上 $i \times \varphi(i)$ ，這樣一來就可以得到整體複雜度為 $O(T+NlogN)$ 的解法了。</p>
 
-
-
-<ul>
-  
-  
-  
-  <li>
-    <span class="date">2022/06/28</span>
-    <a href="/posts/test/">Test</a>
-  </li>
-  
-</ul>
+</main>
 
   <footer>
   
