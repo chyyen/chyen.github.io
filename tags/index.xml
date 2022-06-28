@@ -5,6 +5,25 @@
     <link>http://chyyen.github.io/tags/</link>
     <description>Recent content in Tags on chyen&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://chyyen.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Jun 2022 15:34:13 +0800</lastBuildDate><atom:link href="http://chyyen.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>codechef</title>
+      <link>http://chyyen.github.io/tags/codechef/</link>
+      <pubDate>Tue, 28 Jun 2022 15:34:13 +0800</pubDate>
+      
+      <guid>http://chyyen.github.io/tags/codechef/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>math</title>
+      <link>http://chyyen.github.io/tags/math/</link>
+      <pubDate>Tue, 28 Jun 2022 15:34:13 +0800</pubDate>
+      
+      <guid>http://chyyen.github.io/tags/math/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
