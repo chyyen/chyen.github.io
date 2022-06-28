@@ -8,14 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 28 Jun 2022 15:34:13 +0800</lastBuildDate><atom:link href="http://chyyen.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Test</title>
+      <title>Codechef - Simple Sum</title>
       <link>http://chyyen.github.io/posts/test/</link>
       <pubDate>Tue, 28 Jun 2022 15:34:13 +0800</pubDate>
       
       <guid>http://chyyen.github.io/posts/test/</guid>
-      <description>總共有 $ T $ 筆詢問，每筆詢問會給定一個正整數 $N(N \leq 10^7)$ ，求 : $$ \sum_{i=1}^{n} \frac{n}{gcd(i,n)} $$
+      <description>總共有 $T(T \leq 10^6)$ 筆詢問，每筆詢問會給定一個正整數 $N(N \leq 10^7)$ ，求 : $$ \sum_{i=1}^{n} \frac{n}{gcd(i,n)} $$
 如果考慮枚舉 $gcd(i,n)$ ，這樣一來可以得到原式等於 : $$ \sum_{k \mid n} \frac{n}{k} \sum_{i=1}^{\frac{n}{k}}[\space gcd(i,\frac{n}{k})=1\space] $$ 可以發現 $\sum_{i=1}^{k}[gcd(i,k)=1]$ 其實就等於 $\varphi(k)$ ，於是我們可以預處理 $\varphi(n)$ ，並且對於所有正整數 $i$ ，把 $i$ 的倍數都加上 $i \times \varphi(i)$ ，這樣一來就可以得到整體複雜度為 $O(T+NlogN)$ 的解法了。
-#include&amp;lt;bits/stdc++.h&amp;gt; #define Daredemo_Daisuki ios::sync_with_stdio(0);cin.tie(0); using namespace std; #define int long long // --------------------------------------** const int N = 8010; int n; int a[N]; void solve(){ cin &amp;gt;&amp;gt; n; for(int i=0;i&amp;lt;n;i++) cin &amp;gt;&amp;gt; a[i]; int ans = 1e9+10, sum = 0; for(int i=0;i&amp;lt;n;i++){ int len = i+1, cur = 0, l = i; sum += a[i]; for(int j=i+1;j&amp;lt;n;j++){ cur += a[j]; if(cur==sum){ len = max(len,j-l); cur = 0; l = j; } } if(!</description>
+但這樣的複雜度還是太大了。
+我們令 $f(n)=\sum_{k|n}k \times \varphi(k)$ ，這時候可以注意到 $f$ 是個積性函數，也就是說若 $n=p_1^{k_1} \times p_2^{k_2} \times &amp;hellip; p_r^{k_r}$ ，則 $f(n)=f(p_1^{k_1}) \times f(p_2^{k_2}) \times &amp;hellip; f(p_r^{k_r})$ 。 所以我們可以試著找出 $f(p^k)$ 的通式，這樣一來就可以得到 $O(N+TlogN)$ 的解了。</description>
     </item>
     
   </channel>
