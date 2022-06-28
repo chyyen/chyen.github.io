@@ -13,6 +13,14 @@
     <nav>
     <ul class="menu">
       
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
     </ul>
     <hr/>
     </nav>
@@ -66,6 +74,45 @@ $$ \sum_{i=1}^{n} \frac{n}{gcd(i,n)} $$</p>
 <p>如果考慮枚舉 $gcd(i,n)$ ，這樣一來可以得到原式等於 :
 $$ \sum_{k \mid n} \frac{n}{k} \sum_{i=1}^{\frac{n}{k}}[\space gcd(i,\frac{n}{k})=1\space] $$
 可以發現 $\sum_{i=1}^{k}[gcd(i,k)=1]$ 其實就等於 $\varphi(k)$ ，於是我們可以預處理 $\varphi(n)$ ，並且對於所有正整數 $i$ ，把 $i$ 的倍數都加上 $i \times \varphi(i)$ ，這樣一來就可以得到整體複雜度為 $O(T+NlogN)$ 的解法了。</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+
+#define Daredemo_Daisuki ios::sync_with_stdio(0);cin.tie(0);
+
+using namespace std;
+#define int long long
+// --------------------------------------**
+const int N = 8010;
+
+int n;
+int a[N];
+
+void solve(){
+    cin &gt;&gt; n;
+    for(int i=0;i&lt;n;i++)
+        cin &gt;&gt; a[i];
+    int ans = 1e9+10, sum = 0;
+    for(int i=0;i&lt;n;i++){
+        int len = i+1, cur = 0, l = i;
+        sum += a[i];
+        for(int j=i+1;j&lt;n;j++){
+            cur += a[j];
+            if(cur==sum){
+                len = max(len,j-l);
+                cur = 0;
+                l = j;
+            }
+        }
+        if(!cur)
+            ans = min(ans,len);
+    }
+    cout &lt;&lt; ans &lt;&lt; '\n';
+}
+
+signed main(){
+    Daredemo_Daisuki
+    solve();
+}
+</code></pre>
 
 </main>
 
